@@ -6,13 +6,13 @@ import ContactSection from "./components/ContactSection";
 
 export default function App() {
 	return (
-		<div className="max-w-screen-md mx-auto px-4">
+		<>
 			<Navbar />
-			<main>
+			<main className="max-w-screen-md mx-auto px-4">
 				<HeroSection />
 				<AboutSection />
 				<ContactSection />
 			</main>
-		</div>
+		</>
 	);
 }
