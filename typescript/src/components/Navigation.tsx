@@ -1,18 +1,20 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 interface Props {
   pathName: string[];
 }
 
 const Navigation = ({ pathName }: Props) => {
+  const location = useLocation();
   return (
-    <nav className="flex justify-center bg-gray-800 text-white p rounded-2xl mb-8 shadow-lg shadow-black">
+    <nav className="flex justify-center p w-full bg-white border-b border-black/">
       {pathName.map((path) => (
         <NavLink
           key={path}
           to={path.length ? `/${path}` : "/"}
-          className="m-4 p text-xl hover:underline"
+          className="m-4 p text-xl"
+          style={location.pathname === `/${path}` ? { color: "red" } : {}}
         >
           {path.length ? path.charAt(0).toUpperCase() + path.slice(1) : "Home"}
         </NavLink>

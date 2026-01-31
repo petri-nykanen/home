@@ -1,7 +1,6 @@
 const SkillsContent = () => {
   return (
     <>
-      <h1 className="p-3">Skills</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
         laoreet, leo ut dignissim vulputate, erat nulla elementum neque, vitae

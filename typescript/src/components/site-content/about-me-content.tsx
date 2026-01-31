@@ -1,9 +1,8 @@
+import "../../App.css";
 
 const AboutMeContent = () => {
-
   return (
     <>
-      <h1 className="p-3">About Me</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
         laoreet, leo ut dignissim vulputate, erat nulla elementum neque, vitae

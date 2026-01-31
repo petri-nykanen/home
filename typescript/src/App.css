@@ -1,42 +1,40 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  background-color: #aedbff;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav a {
+  color: #000000;
+  font-weight: 500;
+}
+nav a:hover {
+  color: #3333ff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#imagecontainer {
+  background-image: url("./assets/images/petri.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
 }
 
-.card {
-  padding: 2em;
+/* Image sits below the card: image lower z-index */
+.center-overlap {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  max-width: 50%;
 }
 
-.read-the-docs {
-  color: #888;
+/* Card should sit above the image: negative margin lifts it up and higher z-index covers image */
+.below-card {
+  position: relative;
+  z-index: 2;
+  margin-top: -40px;
+  padding-top: 40px;
 }
