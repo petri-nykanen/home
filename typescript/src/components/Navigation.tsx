@@ -14,7 +14,11 @@ const Navigation = ({ pathName }: Props) => {
           key={path}
           to={path.length ? `/${path}` : "/"}
           className="m-4 p text-xl"
-          style={location.pathname === `/${path}` ? { color: "red" } : {}}
+          style={
+            location.pathname === `/${path}`
+              ? { color: "red", textDecoration: "underline" }
+              : {}
+          }
         >
           {path.length ? path.charAt(0).toUpperCase() + path.slice(1) : "Home"}
         </NavLink>
