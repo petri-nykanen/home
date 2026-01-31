@@ -25,7 +25,7 @@ const socialIcons = [
 
 const SocialsRow = () => {
   return (
-    <div className="justify-center grid grid-cols-2 lg:grid-cols-4 mt-2 min-w-full">
+    <div className="justify-center grid grid-cols-2 md:flex md:space-x-4 mt-2 min-w-full">
       {socialIcons.map((social) => (
         <a
           key={social.name}
