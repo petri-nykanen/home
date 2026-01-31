@@ -26,7 +26,7 @@ const socialIcons = [
 
 const SocialsRow = () => {
   return (
-    <motion.div 
+    <motion.div
       className="justify-center grid grid-cols-2 md:flex md:space-x-4 mt-2 min-w-full"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -40,11 +40,11 @@ const SocialsRow = () => {
           rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ 
-            duration: 0.5, 
+          transition={{
+            duration: 0.5,
             delay: 1.4 + index * 0.1,
             type: "spring",
-            stiffness: 200
+            stiffness: 200,
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
