@@ -25,7 +25,7 @@ const socialIcons = [
 
 const SocialsRow = () => {
   return (
-    <div className="flex justify-center space-x-2 mt-2">
+    <div className="justify-center grid grid-cols-2 lg:grid-cols-4 mt-2 min-w-full">
       {socialIcons.map((social) => (
         <a
           key={social.name}
@@ -33,7 +33,11 @@ const SocialsRow = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={social.icon} alt={social.name} className="w-20 h-20" />
+          <img
+            src={social.icon}
+            alt={social.name}
+            className="w-20 shadow-md shadow-black/20 rounded-full mx-auto"
+          />
         </a>
       ))}
     </div>
