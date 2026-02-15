@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic+Guides&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Workbench&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monofett&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Workbench&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -119,6 +122,9 @@ button:focus-visible {
   --font-roboto: "Roboto", sans-serif;
   --font-playwrite: "Playwrite NZ Basic Guides", cursive;
   --font-roboto-condensed: "Roboto Condensed", sans-serif;
+  --font-monofett: "Monofett", cursive;
+  --font-workbench: "Workbench", monospace;
+  --font-doto: "Doto", sans-serif;
 }
 
 @theme inline {

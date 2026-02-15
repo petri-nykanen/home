@@ -17,7 +17,7 @@ function App() {
     <ThemeProvider>
       <MantineProvider>
         <Navigation pathName={paths} />
-        <motion.div className="p-10 min-h-screen flex-col">
+        <motion.div className="p-10 min-h-screen min-w-screen">
           <Header />
           <div className="w-1/2 m-auto">
             <AnimatePresence mode="wait">

@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 interface Props {
@@ -8,7 +7,7 @@ interface Props {
 const Navigation = ({ pathName }: Props) => {
   const location = useLocation();
   return (
-    <nav className="flex justify-center p w-full bg-white border-b border-black/">
+    <nav className="flex justify-center p w-full bg-white border-b border-black/10 fixed top-0 z-10">
       {pathName.map((path) => (
         <NavLink
           key={path}

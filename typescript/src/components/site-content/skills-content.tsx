@@ -1,58 +1,68 @@
+import {
+  SiTypescript,
+  SiReact,
+  SiMysql,
+  SiMongodb,
+  SiJest,
+  SiHtml5,
+  SiCss3,
+  SiAmazon,
+  SiAdobephotoshop,
+  SiAdobeindesign,
+  SiAdobeillustrator,
+} from "react-icons/si";
+
 const SkillsContent = () => {
+  const developmentSkills = [
+    { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+    { icon: SiReact, name: "React", color: "#61DAFB" },
+    { icon: SiMysql, name: "SQL", color: "#00758F" },
+    { icon: SiMongodb, name: "MongoDB", color: "#13AA52" },
+    { icon: SiJest, name: "Jest", color: "#C21325" },
+    { icon: SiHtml5, name: "HTML", color: "#E34C26" },
+    { icon: SiCss3, name: "CSS", color: "#1572B6" },
+  ];
+
+  const cloudSkills = [
+    { icon: SiAmazon, name: "AWS S3", color: "#FF9900" },
+    { icon: SiAmazon, name: "AWS Lambda", color: "#FF9900" },
+  ];
+
+  const designSkills = [
+    { icon: SiAdobephotoshop, name: "Photoshop", color: "#31A8FF" },
+    { icon: SiAdobeindesign, name: "InDesign", color: "#EE3D8E" },
+    { icon: SiAdobeillustrator, name: "Illustrator", color: "#FF7F00" },
+  ];
+
+  const SkillGrid = ({ skills }) => (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-8">
+      {skills.map((skill, index) => {
+        const IconComponent = skill.icon;
+        return (
+          <div key={index} className="flex flex-col items-center gap-3">
+            <IconComponent
+              size={64}
+              className="flex-shrink-0"
+              style={{ color: skill.color }}
+            />
+            <p className="text-center font-semibold text-sm">{skill.name}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+
   return (
-    <>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-        laoreet, leo ut dignissim vulputate, erat nulla elementum neque, vitae
-        ultrices nunc ex at ex. Quisque quis dolor vitae dui maximus egestas.
-        Suspendisse ut semper ante. In quis diam euismod, semper eros in,
-        consectetur massa. Donec vestibulum pharetra lorem ac commodo. Donec
-        cursus ultricies sem ut commodo. Vivamus consequat vestibulum mi a
-        dignissim. Nulla at lacinia libero, in venenatis nisi. Nunc sed iaculis
-        nisi. Integer viverra elit quis pellentesque vestibulum. Maecenas ex ex,
-        porttitor sit amet turpis nec, rutrum finibus nisi. Pellentesque ornare
-        et orci vel luctus. Nullam pellentesque maximus varius. Aenean quis
-        metus massa. Proin ullamcorper, felis non vulputate vulputate, nisl
-        justo congue enim, at pretium urna lectus a tellus. Aliquam enim nunc,
-        blandit sit amet convallis tempus, fermentum et dui. Ut fringilla
-        gravida elit ut consectetur. Maecenas aliquet accumsan est, in ornare
-        dolor imperdiet a. Quisque rhoncus, lorem vel finibus laoreet, massa
-        ipsum commodo quam, vitae consectetur neque dui ut velit. Donec
-        dignissim in orci quis hendrerit. Phasellus eu euismod erat. Proin
-        placerat pharetra pharetra. In rutrum mi lectus. Fusce accumsan ante ut
-        nisl placerat interdum. Etiam ut sem elementum, fermentum tortor in,
-        vehicula est. Sed et dictum velit. Aenean quis lorem nunc. Pellentesque
-        placerat, ex eget efficitur congue, justo elit sollicitudin erat, vitae
-        viverra purus velit a neque. Duis in tellus non purus ultrices sodales
-        nec non nulla. Proin sit amet bibendum quam. In lobortis volutpat ex at
-        sagittis. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. Vivamus sit amet lacinia sapien, quis
-        hendrerit ex. Maecenas in risus id ligula mattis dapibus. Integer
-        ultricies ex ac hendrerit lobortis. Mauris id sollicitudin lorem.
-        Integer dapibus, ligula sit amet auctor lobortis, purus nisi imperdiet
-        nisl, nec vulputate diam nisi vitae leo. Pellentesque sed erat magna.
-        Vestibulum gravida ante risus, et lacinia nisl viverra in. Donec mollis
-        felis a orci euismod, vitae porta est placerat. Curabitur aliquet sed ex
-        in mattis. Suspendisse cursus commodo metus, a feugiat velit luctus id.
-        Nulla nulla elit, rhoncus at elementum non, auctor a lectus. Nullam
-        accumsan euismod nisl a pulvinar. Pellentesque habitant morbi tristique
-        senectus et netus et malesuada fames ac turpis egestas. Praesent
-        fermentum lectus sit amet faucibus suscipit. Curabitur sem nisi,
-        fermentum at dolor sed, posuere dignissim quam. Morbi maximus rutrum
-        risus in tincidunt. Praesent at tortor a leo molestie finibus. Donec
-        tortor leo, eleifend eget hendrerit vitae, laoreet at ipsum. Aliquam
-        eget auctor enim, placerat commodo justo. Quisque pellentesque dolor mi,
-        feugiat tincidunt dui malesuada vitae. Orci varius natoque penatibus et
-        magnis dis parturient montes, nascetur ridiculus mus. Fusce id tortor
-        magna. Sed pharetra dignissim magna. Cras sit amet lorem nulla. Donec
-        vulputate rhoncus feugiat. Interdum et malesuada fames ac ante ipsum
-        primis in faucibus. Nam vitae ipsum lacus. Sed faucibus faucibus ligula,
-        eu convallis ipsum laoreet non. Curabitur fringilla diam vel ex
-        venenatis, ut efficitur felis rhoncus. In eu laoreet lectus, vitae
-        mollis ipsum. Nunc diam ante, fringilla quis auctor ut, egestas et
-        ligula.{" "}
-      </p>
-    </>
+    <div className="p-6 bg-white rounded-md border-6 border-indigo-400 shadow-md shadow-black/20">
+      <h2 className="text-2xl font-bold mb-4 text-center">Development</h2>
+      <SkillGrid skills={developmentSkills} />
+
+      <h2 className="text-2xl font-bold mb-4 text-center">Cloud Services</h2>
+      <SkillGrid skills={cloudSkills} />
+
+      <h2 className="text-2xl font-bold mb-4 text-center">Design Tools</h2>
+      <SkillGrid skills={designSkills} />
+    </div>
   );
 };
 

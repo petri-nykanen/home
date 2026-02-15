@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "motion/react";
 import facebook from "../assets/images/facebook.png";
 import github from "../assets/images/github.png";
