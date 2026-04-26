@@ -1,27 +1,33 @@
-import { NavLink, useLocation } from "react-router-dom";
-
-interface Props {
-  pathName: string[];
+interface Section {
+  id: string;
+  label: string;
 }
 
-const Navigation = ({ pathName }: Props) => {
-  const location = useLocation();
+interface Props {
+  sections: Section[];
+  activeSection: string;
+  onSelect: (id: string) => void;
+}
+
+const Navigation = ({ sections, activeSection, onSelect }: Props) => {
   return (
-    <nav className="flex justify-center p w-full bg-white border-b border-black/10 fixed top-0 z-10">
-      {pathName.map((path) => (
-        <NavLink
-          key={path}
-          to={path.length ? `/${path}` : "/"}
-          className="m-4 p text-xl"
-          style={
-            location.pathname === `/${path}`
-              ? { color: "red", textDecoration: "underline" }
-              : {}
-          }
-        >
-          {path.length ? path.charAt(0).toUpperCase() + path.slice(1) : "Home"}
-        </NavLink>
-      ))}
+    <nav className="fixed mt-100 ml-30 border- px-4 py-8 bg-transparent">
+      <div className="flex flex-col items-start gap-2">
+        {sections.map((section) => (
+          <button
+            key={section.id}
+            type="button"
+            className={`w-full text-left text-base font-medium transition-colors py-2 ${
+              activeSection === section.id
+                ? "text-red-700 underline"
+                : "text-black/80 hover:text-black"
+            }`}
+            onClick={() => onSelect(section.id)}
+          >
+            {section.label}
+          </button>
+        ))}
+      </div>
     </nav>
   );
 };

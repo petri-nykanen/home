@@ -1,68 +1,42 @@
-import { Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
+import { useCallback, useState } from "react";
 import LandingPage from "./pages/LandingPage";
-import SkillsPage from "./pages/SkillsPage";
-import AboutMePage from "./pages/AboutMePage";
 import Navigation from "./components/Navigation";
-import { motion, AnimatePresence } from "motion/react";
-import Header from "./components/Header";
+import { motion } from "motion/react";
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
 import ThemeProvider from "./ThemeProvider";
 
+const sections = [
+  { id: "home", label: "Home" },
+  { id: "skills", label: "Skills" },
+  { id: "about", label: "About" },
+];
+
 function App() {
-  const location = useLocation();
-  const paths = ["", "skills"];
+  const [activeSection, setActiveSection] = useState("home");
+
+  const handleScrollToSection = useCallback((id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, []);
+
   return (
     <ThemeProvider>
       <MantineProvider>
-        <Navigation pathName={paths} />
-        <motion.div className="p-10 min-h-screen min-w-screen">
-          <Header />
-          <div className="w-1/2 m-auto">
-            <AnimatePresence mode="wait">
-              <Routes location={location} key={location.pathname}>
-                <Route
-                  path="/"
-                  element={
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <LandingPage />
-                    </motion.div>
-                  }
-                />
-                <Route
-                  path="/skills"
-                  element={
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <SkillsPage />
-                    </motion.div>
-                  }
-                />
-                <Route
-                  path="/projects"
-                  element={
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <AboutMePage />
-                    </motion.div>
-                  }
-                />
-              </Routes>
-            </AnimatePresence>
+        <Navigation
+          sections={sections}
+          activeSection={activeSection}
+          onSelect={handleScrollToSection}
+        />
+        <motion.div className="min-h-screen min-w-screen py-10">
+          <div className="w-full max-w-5xl mx-auto space-y-24">
+            <LandingPage
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
+            />
           </div>
         </motion.div>
       </MantineProvider>

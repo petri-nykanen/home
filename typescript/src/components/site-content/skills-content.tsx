@@ -1,3 +1,4 @@
+import type { ComponentType, CSSProperties } from "react";
 import {
   SiTypescript,
   SiReact,
@@ -12,8 +13,22 @@ import {
   SiAdobeillustrator,
 } from "react-icons/si";
 
+interface SkillType {
+  icon: ComponentType<{
+    size?: number;
+    className?: string;
+    style?: CSSProperties;
+  }>;
+  name: string;
+  color: string;
+}
+
+interface SkillGridProps {
+  skills: SkillType[];
+}
+
 const SkillsContent = () => {
-  const developmentSkills = [
+  const developmentSkills: SkillType[] = [
     { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
     { icon: SiReact, name: "React", color: "#61DAFB" },
     { icon: SiMysql, name: "SQL", color: "#00758F" },
@@ -23,18 +38,18 @@ const SkillsContent = () => {
     { icon: SiCss3, name: "CSS", color: "#1572B6" },
   ];
 
-  const cloudSkills = [
+  const cloudSkills: SkillType[] = [
     { icon: SiAmazon, name: "AWS S3", color: "#FF9900" },
     { icon: SiAmazon, name: "AWS Lambda", color: "#FF9900" },
   ];
 
-  const designSkills = [
+  const designSkills: SkillType[] = [
     { icon: SiAdobephotoshop, name: "Photoshop", color: "#31A8FF" },
     { icon: SiAdobeindesign, name: "InDesign", color: "#EE3D8E" },
     { icon: SiAdobeillustrator, name: "Illustrator", color: "#FF7F00" },
   ];
 
-  const SkillGrid = ({ skills }) => (
+  const SkillGrid = ({ skills }: SkillGridProps) => (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-8">
       {skills.map((skill, index) => {
         const IconComponent = skill.icon;
@@ -42,7 +57,7 @@ const SkillsContent = () => {
           <div key={index} className="flex flex-col items-center gap-3">
             <IconComponent
               size={64}
-              className="flex-shrink-0"
+              className="shrink-0"
               style={{ color: skill.color }}
             />
             <p className="text-center font-semibold text-sm">{skill.name}</p>
