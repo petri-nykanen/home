@@ -50,14 +50,14 @@ const SkillsContent = () => {
   ];
 
   const SkillGrid = ({ skills }: SkillGridProps) => (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-8">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-8 justify-center">
       {skills.map((skill, index) => {
         const IconComponent = skill.icon;
         return (
           <div key={index} className="flex flex-col items-center gap-3">
             <IconComponent
               size={64}
-              className="shrink-0"
+              className="shrink-0 drop-shadow-md"
               style={{ color: skill.color }}
             />
             <p className="text-center font-semibold text-sm">{skill.name}</p>
@@ -68,7 +68,7 @@ const SkillsContent = () => {
   );
 
   return (
-    <div className="p-6 bg-white rounded-md border-6 border-indigo-400 shadow-md shadow-black/20">
+    <div className="p-6">
       <h2 className="text-2xl font-bold mb-4 text-center">Development</h2>
       <SkillGrid skills={developmentSkills} />
 
