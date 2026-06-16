@@ -3,6 +3,7 @@ import LandingContent from "@/components/site-content/landing-content";
 import SkillsContent from "@/components/site-content/skills-content";
 import AboutMeContent from "@/components/site-content/about-me-content";
 import SocialsRow from "@/components/SocialsRow";
+import mainbg from "@/assets/images/mainbg2.a5b1a9d8a78c28f7974c.png";
 
 interface Props {
   activeSection: string;
@@ -81,35 +82,50 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
   };
 
   return (
-    <div onWheel={handleWheel} className="scroll-smooth">
+    <div onWheel={handleWheel} className="scroll-smooth space-y-24">
       <section
         id="home"
         ref={homeRef}
-        className="scroll-mt-24 min-h-screen py-16"
+        className="relative scroll-mt-24 min-h-screen py-16"
+        style={{
+          backgroundImage: `url(${mainbg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
       >
-        <LandingContent />
-        <div className="mt-10">
-          <SocialsRow />
+        <div className="absolute inset-0 bg-white/30 pointer-events-none" />
+        <div className="relative z-10 w-full max-w-5xl mx-auto">
+          <LandingContent />
+          <div className="mt-10">
+            <SocialsRow />
+          </div>
         </div>
       </section>
 
       <section
         id="skills"
         ref={skillsRef}
-        className="scroll-mt-24 min-h-screen py-16"
+        className="scroll-mt-24 min-h-screen py-16 text-black"
       >
-        <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2>
-        <SkillsContent />
+        <div className="w-full max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Technologies I use
+          </h2>
+          <SkillsContent />
+        </div>
       </section>
 
       <section
         id="about"
         ref={aboutRef}
-        className="scroll-mt-24 min-h-screen py-16"
+        className="scroll-mt-24 min-h-screen py-16 bg-teal-300 text-black"
       >
-        <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
-        <div className="bg-white rounded-md border-6 border-indigo-400 shadow-md shadow-black/20 p-6">
-          <AboutMeContent />
+        <div className="w-full max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
+          <div className="rounded-md border-6 border-indigo-400 shadow-md shadow-black/20 p-6 bg-white">
+            <AboutMeContent />
+          </div>
         </div>
       </section>
     </div>

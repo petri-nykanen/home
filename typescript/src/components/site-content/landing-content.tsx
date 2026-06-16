@@ -19,7 +19,7 @@ const LandingContent = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         />
         <motion.div
-          className="text-center min-w-full bg-white rounded-md border-6 p-6 border-indigo-400 shadow-md shadow-black/20"
+          className="text-center min-w-full bg-white rounded-md border-6 p-6 border-teal-400 shadow-md shadow-black/20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}

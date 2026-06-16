@@ -31,13 +31,11 @@ function App() {
           activeSection={activeSection}
           onSelect={handleScrollToSection}
         />
-        <motion.div className="min-h-screen min-w-screen py-10">
-          <div className="w-full max-w-5xl mx-auto space-y-24">
-            <LandingPage
-              activeSection={activeSection}
-              setActiveSection={setActiveSection}
-            />
-          </div>
+        <motion.div className="min-h-screen min-w-screen">
+          <LandingPage
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+          />
         </motion.div>
       </MantineProvider>
     </ThemeProvider>
