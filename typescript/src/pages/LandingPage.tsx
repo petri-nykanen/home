@@ -4,7 +4,7 @@ import SkillsContent from "@/components/site-content/skills-content";
 import AboutMeContent from "@/components/site-content/about-me-content";
 import SocialsRow from "@/components/SocialsRow";
 import mainbg from "@/assets/images/mainbg2.a5b1a9d8a78c28f7974c.png";
-import deskpic from "@/assets/images/deskpic1_crop.png";
+import deskpic from "@/assets/images/deskpic_normal_gradient.png";
 
 interface Props {
   activeSection: string;
@@ -120,12 +120,9 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
       <section
         id="about"
         ref={aboutRef}
-        className="scroll-mt-24 min-h-screen py-16 text-black"
+        className="about-desk scroll-mt-24 min-h-screen py-16 text-black"
         style={{
           backgroundImage: `url(${deskpic})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center 50%",
-          backgroundRepeat: "no-repeat",
         }}
       >
         <div className="w-full max-w-5xl mx-auto">

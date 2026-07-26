@@ -214,3 +214,19 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+/* Responsive desk background for the About section */
+.about-desk {
+  background-size: cover;
+  background-position: center 10%;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 640px) {
+  .about-desk {
+    /* Scale up and crop the image on small screens so aspect-ratio changes don't distort it */
+    background-size: 160% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+}
