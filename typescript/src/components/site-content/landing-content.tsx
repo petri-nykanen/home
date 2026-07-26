@@ -31,7 +31,7 @@ const LandingContent = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <h1 className="text-2xl font-bold font-doto">Petri Nykänen</h1>
+              <h1 className="text-2xl font-bold font-doto bg-gradient-to-r from-teal-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">Petri Nykänen</h1>
               <br />
               <b>Web Developer</b>
               <br />
