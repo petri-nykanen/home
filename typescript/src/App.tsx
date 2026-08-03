@@ -9,8 +9,8 @@ import ThemeProvider from "./ThemeProvider";
 
 const sections = [
   { id: "home", label: "Home" },
-  { id: "skills", label: "Skills" },
   { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
 ];
 
 function App() {
@@ -18,9 +18,9 @@ function App() {
 
   const handleScrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (!element) return;
+    const elementTop = element.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: elementTop, behavior: "smooth" });
   }, []);
 
   return (

@@ -20,13 +20,13 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
     null,
   );
   const isWheelScrollingRef = useRef(false);
-  const sectionOrder = ["home", "skills", "about"];
+  const sectionOrder = ["home", "about", "skills"];
 
   useEffect(() => {
     const sections = [
       homeRef.current,
-      skillsRef.current,
       aboutRef.current,
+      skillsRef.current,
     ].filter(Boolean) as HTMLElement[];
 
     const observer = new IntersectionObserver(
@@ -53,7 +53,8 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
     if (!element) return;
 
     isWheelScrollingRef.current = true;
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
+    const elementTop = element.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: elementTop, behavior: "smooth" });
     if (wheelTimeoutRef.current) {
       window.clearTimeout(wheelTimeoutRef.current);
     }
@@ -83,11 +84,11 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
   };
 
   return (
-    <div onWheel={handleWheel} className="scroll-smooth space-y-24">
+    <div onWheel={handleWheel} className="scroll-smooth">
       <section
         id="home"
         ref={homeRef}
-        className="relative scroll-mt-24 min-h-screen py-16"
+        className="relative scroll-mt-0 min-h-screen py-16"
         style={{
           backgroundImage: `url(${mainbg})`,
           backgroundSize: "cover",
@@ -105,22 +106,9 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
       </section>
 
       <section
-        id="skills"
-        ref={skillsRef}
-        className="scroll-mt-24 min-h-screen py-16 text-black"
-      >
-        <div className="w-full max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Technologies I use
-          </h2>
-          <SkillsContent />
-        </div>
-      </section>
-
-      <section
         id="about"
         ref={aboutRef}
-        className="about-desk scroll-mt-24 min-h-screen py-16 text-black"
+        className="about-desk scroll-mt-0 min-h-screen py-16 text-black"
         style={{
           backgroundImage: `url(${deskpic})`,
         }}
@@ -129,6 +117,19 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
           <div className="ml-100 rounded-md border-6 border-indigo-400 shadow-md shadow-black/20 p-6 bg-white/80 backdrop-blur-md">
             <AboutMeContent />
           </div>
+        </div>
+      </section>
+
+      <section
+        id="skills"
+        ref={skillsRef}
+        className="scroll-mt-0 min-h-screen py-16 text-black"
+      >
+        <div className="w-full max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Technologies I use
+          </h2>
+          <SkillsContent />
         </div>
       </section>
     </div>
