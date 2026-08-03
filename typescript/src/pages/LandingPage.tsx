@@ -2,6 +2,7 @@ import { type WheelEvent, useEffect, useRef } from "react";
 import LandingContent from "@/components/site-content/landing-content";
 import SkillsContent from "@/components/site-content/skills-content";
 import AboutMeContent from "@/components/site-content/about-me-content";
+import ContactContent from "@/components/site-content/contact-content";
 import SocialsRow from "@/components/SocialsRow";
 import mainbg from "@/assets/images/mainbg2.a5b1a9d8a78c28f7974c.png";
 import deskpic from "@/assets/images/deskpic_normal_gradient.png";
@@ -15,18 +16,20 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
   const homeRef = useRef<HTMLElement | null>(null);
   const skillsRef = useRef<HTMLElement | null>(null);
   const aboutRef = useRef<HTMLElement | null>(null);
+  const contactRef = useRef<HTMLElement | null>(null);
 
   const wheelTimeoutRef = useRef<ReturnType<typeof window.setTimeout> | null>(
     null,
   );
   const isWheelScrollingRef = useRef(false);
-  const sectionOrder = ["home", "about", "skills"];
+  const sectionOrder = ["home", "about", "skills", "contact"];
 
   useEffect(() => {
     const sections = [
       homeRef.current,
       aboutRef.current,
       skillsRef.current,
+      contactRef.current,
     ].filter(Boolean) as HTMLElement[];
 
     const observer = new IntersectionObserver(
@@ -130,6 +133,19 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
             Technologies I use
           </h2>
           <SkillsContent />
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        ref={contactRef}
+        className="scroll-mt-0 min-h-screen py-16 text-black"
+      >
+        <div className="w-full max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Contact me
+          </h2>
+          <ContactContent />
         </div>
       </section>
     </div>
