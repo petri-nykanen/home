@@ -1,26 +1,44 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
+import "./index.css";
+import { useCallback, useState } from "react";
 import LandingPage from "./pages/LandingPage";
-import SkillsPage from "./pages/SkillsPage";
-import SocialsPage from "./pages/SocialsPage";
-import AboutMePage from "./pages/AboutMePage";
 import Navigation from "./components/Navigation";
 import { motion } from "motion/react";
+import "@mantine/core/styles.css";
+import { MantineProvider } from "@mantine/core";
+import ThemeProvider from "./ThemeProvider";
+
+const sections = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+];
 
 function App() {
-  const paths = ["", "skills", "socials", "about"];
+  const [activeSection, setActiveSection] = useState("home");
+
+  const handleScrollToSection = useCallback((id: string) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+    const elementTop = element.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: elementTop, behavior: "smooth" });
+  }, []);
+
   return (
-    <>
-      <Navigation pathName={paths} />
-      <motion.div className="border-8 w-l rounded-4xl border-amber-400 p-10 bg-linear-to-t from-sky-500 to-indigo-500 min-h-screen shadow-2xl shadow-black">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/socials" element={<SocialsPage />} />
-          <Route path="/about" element={<AboutMePage />} />
-        </Routes>
-      </motion.div>
-    </>
+    <ThemeProvider>
+      <MantineProvider>
+        <Navigation
+          sections={sections}
+          activeSection={activeSection}
+          onSelect={handleScrollToSection}
+        />
+        <motion.div className="min-h-screen min-w-screen">
+          <LandingPage
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+          />
+        </motion.div>
+      </MantineProvider>
+    </ThemeProvider>
   );
 }
 
