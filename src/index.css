@@ -85,10 +85,6 @@ body {
   color: #111827;
 }
 
-section {
-  scroll-margin-top: 6rem;
-}
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -228,5 +224,27 @@ button:focus-visible {
     background-size: 160% auto;
     background-position: center top;
     background-repeat: no-repeat;
+  }
+}
+
+/* Fade animation for the "Looking for work!" heading */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+.fade-animate {
+  animation: fadeInOut 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-animate {
+    animation: none;
   }
 }
