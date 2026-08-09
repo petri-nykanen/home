@@ -1,4 +1,13 @@
-import { Button, Group, Paper, Stack, Text, TextInput, Textarea, Title } from "@mantine/core";
+import {
+  Button,
+  Group,
+  Paper,
+  Stack,
+  Text,
+  TextInput,
+  Textarea,
+  Title,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
@@ -19,8 +28,10 @@ const ContactContent = () => {
       message: "",
     },
     validate: {
-      name: (value) => (value.trim().length < 2 ? "Please enter your name." : null),
-      email: (value) => (/^\S+@\S+\.\S+$/.test(value) ? null : "Please enter a valid email."),
+      name: (value) =>
+        value.trim().length < 2 ? "Please enter your name." : null,
+      email: (value) =>
+        /^\S+@\S+\.\S+$/.test(value) ? null : "Please enter a valid email.",
       message: (value) =>
         value.trim().length < 10
           ? "Please share a bit more detail so I can help you."

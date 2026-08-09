@@ -142,9 +142,7 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
         className="scroll-mt-0 min-h-screen py-16 text-black"
       >
         <div className="w-full max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Contact me
-          </h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Contact me</h2>
           <ContactContent />
         </div>
       </section>
