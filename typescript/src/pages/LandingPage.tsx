@@ -139,7 +139,7 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
       <section
         id="contact"
         ref={contactRef}
-        className="scroll-mt-0 min-h-screen py-16 text-black"
+        className="scroll-mt-0 min-h-screen py-16 text-black bg-linear-to-b from-white to-teal-200"
       >
         <div className="w-full max-w-5xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Contact me</h2>
