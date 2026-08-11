@@ -117,7 +117,7 @@ const LandingPage = ({ activeSection, setActiveSection }: Props) => {
         }}
       >
         <div className="w-full max-w-5xl mx-auto">
-          <div className="ml-100 rounded-md border-6 border-indigo-400 shadow-md shadow-black/20 p-6 bg-white/80 backdrop-blur-md">
+          <div className="mx-4 md:ml-24 lg:ml-64 xl:ml-80 rounded-md border-6 border-indigo-400 shadow-md shadow-black/20 p-6 bg-white/80 backdrop-blur-md">
             <AboutMeContent />
           </div>
         </div>
